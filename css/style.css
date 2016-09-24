@@ -1,0 +1,45 @@
+.flex-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  width: 100vw;
+  height: 80vh;
+}
+
+.main-wrapper {
+  margin: auto;
+}
+
+.sommelier-screen {
+  border-radius: 5px;
+  padding: 10px;
+  background: rgba(211, 211, 211, .5);
+
+}
+
+.sommelier-screen table {
+  width: 100%;
+  margin: 10px;
+  border-bottom: 1px solid black;
+}
+
+.sommelier-screen table tr {
+
+}
+
+.sommelier-screen td,
+.sommelier-screen th{
+  padding: 5px;
+}
+
+
+
+.create-sommelier {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.create-sommelier button {
+  border-radius: 0;
+}
