@@ -22,7 +22,7 @@
         <div class="sommelier-screen" data-bind="visible: sommeliersVisible">
           <div class="create-sommelier">
             <input type="text" name="name" value="" data-bind="value: newSommelierName">
-            <button type="button" name="button" class="btn btn-success" data-bind="click: addSommelier">Add Sommelier</button>
+            <button type="button" name="button" class="btn btn-success" data-bind="click: addSommelier, css: {disabled: !newSommelierName()}">Add Sommelier</button>
           </div>
 
           <table data-bind="foreach: sommeliers">
