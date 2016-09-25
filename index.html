@@ -22,13 +22,13 @@
         <div class="sommelier-screen" data-bind="visible: sommeliersVisible">
           <div class="create-sommelier">
             <input type="text" name="name" value="" data-bind="value: newSommelierName">
-            <button type="button" name="button" class="btn btn-success" data-bind="click: addSommelier, css: {disabled: !newSommelierName()}">Add Sommelier</button>
+            <button type="button" name="button" class="btn btn-primary" data-bind="click: addSommelier, css: {disabled: !newSommelierName()}">Add Sommelier</button>
           </div>
 
           <table data-bind="foreach: sommeliers">
             <tr>
               <td data-bind="text: name"></td>
-              <td><button type="button" name="button" data-bind="enable: testPass, click: $root.getWines">Drink some wine</button></td>
+              <td><button type="button" name="button" class="btn" data-bind="enable: canTest, click: $root.getWines, text: drinkStatusText, css: {disabled: !canTest(), 'btn-success': !canTest()}">Drink some wine</button></td>
             </tr>
           </table>
 
