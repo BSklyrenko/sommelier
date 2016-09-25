@@ -44,7 +44,7 @@
             <tbody data-bind="foreach: wines">
               <tr>
                 <td data-bind="text: hideName()"></td>
-                <td><select data-bind="options: [1, 2, 3, 4, 5], value: rating[$parent.sommelierName]"></select></td>
+                <td><select data-bind="options: [1, 2, 3, 4, 5], value: sommelierRating, click: insertSommelierRating($parent.sommelierName)"></select></td>
                 <!-- тут у меня возникили проблемы при добавлении в ассоциативный массив рейтинга ключа с именем сомелье (value: rating[$parent.sommelierName])-->
                 <!-- при загрузке страницы, т.к. сомелье еще не создан, в массиве создается ключ undefined со значением 1-->
                 <!-- исправлять я это не стал, а просто учел этот факт при рассчете среднего значения рейтинга-->
@@ -62,7 +62,7 @@
               <tr>
                 <td data-bind="text: name"></td>
                 <td data-bind="text: age"></td>
-                <td data-bind="text: average()"></td>
+                <td data-bind="text: getAverageScore()"></td>
               </tr>
             </tbody>
           </table>

@@ -4,20 +4,27 @@ function WineBottle (wineObj) {                                    // конст
   this.name = wineObj.name;
   this.age = wineObj.age;
   this.rating = wineObj.rating;
+  this.sommelierRating = ko.observable();
 
-  this.average = function() {                                      // метод рассчитывает средний рейтинг основываясь на значениях,
-    var averageScore = 0;                                          // записанных в ассоциативном массиве рейтинга
+  this.getAverageScore = function() {                                      // метод рассчитывает средний рейтинг основываясь на значениях,
+    var totalScore = 0;                                            // записанных в ассоциативном массиве рейтинга
     var sommeliers = Object.keys(this.rating).length;
     for(var key in this.rating) {
-      averageScore += this.rating[key];
+      totalScore += this.rating[key];
     }
-    return averageScore === 1 ? 1 : Math.floor((averageScore - 1)/(sommeliers - 1));
+    return totalScore === 0 ? 0 : Math.floor((totalScore)/(sommeliers));
   };
 
   this.hideName = function() {                                    // метод создающий патерн для
     var result = "";                                              // скрытия названия вин
     for(var i = 0; i < this.name.length; i++) result += "X";
     return result;
+  };
+
+  this.insertSommelierRating = function(name) {
+    if(name) {
+      this.rating[name] = this.sommelierRating();
+    }
   };
 }
 
