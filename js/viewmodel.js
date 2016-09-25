@@ -6,7 +6,7 @@ function WineBottle (wineObj) {                                    // конст
   this.rating = wineObj.rating;
   this.sommelierRating = ko.observable();
 
-  this.getAverageScore = function() {                                      // метод рассчитывает средний рейтинг основываясь на значениях,
+  this.getAverageScore = function() {                              // метод рассчитывает средний рейтинг основываясь на значениях,
     var totalScore = 0;                                            // записанных в ассоциативном массиве рейтинга
     var sommeliers = Object.keys(this.rating).length;
     for(var key in this.rating) {
@@ -34,7 +34,7 @@ function Sommelier(name) {                                        // конст�
   this.drinkStatusText = ko.observable('Drink some wine');
 }
 
-function SommelierViewmMdel() {
+function SommelierViewModel() {
   var self = this;
 
   self.wineList = ko.observable();                                 // массив винных бутылок
