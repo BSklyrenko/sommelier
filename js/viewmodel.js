@@ -53,13 +53,13 @@ function SommelierViewModel() {
     self.sommeliersVisible(false);                                 // отображения его в окне дегустирования
     self.wineTestVisible(true);
     self.wineList({
-      wines: $.map(JSON.parse(wineBase), function(item) { return new WineBottle(item); }),
+      wines: getFromStorage(WineBottle),
       sommelierName: sommelier.name
     });
   };
 
-  self.saveTable = function() {                                    // метод сохраняет результат дегустирования
-    wineBase = ko.toJSON(self.wineList().wines);
+  self.saveTable = function() {
+    insertToStorage(self.wineList().wines);                        // метод сохраняет результат дегустирования
     self.wineList(null);
     self.sommeliersVisible(true);
     self.wineTestVisible(false);
@@ -67,9 +67,7 @@ function SommelierViewModel() {
 
   self.showResults = function() {                                  // метод открывает окно результатов дегустирования
     self.sommeliersVisible(false);                                 // используя данные записанные в условную бд
-    self.wineList({
-      wines: $.map(JSON.parse(wineBase), function(item) { return new WineBottle(item); })
-    });
+    self.wineList({ wines: getFromStorage(WineBottle) });
     self.resultsVisible(true);
   };
 

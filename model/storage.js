@@ -29,3 +29,11 @@ var wineBase = [
 ];
 
 wineBase = JSON.stringify(wineBase);
+
+function getFromStorage(Constructor) {
+  return $.map(JSON.parse(wineBase), function(item) { return new Constructor(item); });
+}
+
+function insertToStorage(obj) {
+  wineBase = JSON.stringify(obj);
+}
