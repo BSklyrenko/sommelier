@@ -47,7 +47,7 @@ function SommelierViewModel() {
     self.newSommelierName('');
   };
 
-  self.getWines = function(sommelier) {                            // метод, обращаясь к условной бд,
+  self.showDigustationWindow = function(sommelier) {                            // метод, обращаясь к условной бд,
     sommelier.canTest(false);
     sommelier.drinkStatusText('Thanks for digustation');           // создает список винных бутылок для
     self.sommeliersVisible(false);                                 // отображения его в окне дегустирования

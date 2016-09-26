@@ -28,7 +28,7 @@
           <table data-bind="foreach: sommeliers">
             <tr>
               <td data-bind="text: name"></td>
-              <td><button type="button" name="button" class="btn" data-bind="enable: canTest, click: $root.getWines, text: drinkStatusText, css: {disabled: !canTest(), 'btn-success': !canTest()}">Drink some wine</button></td>
+              <td><button type="button" name="button" class="btn" data-bind="enable: canTest, click: $root.showDigustationWindow, text: drinkStatusText, css: {disabled: !canTest(), 'btn-success': !canTest()}">Drink some wine</button></td>
             </tr>
           </table>
 
