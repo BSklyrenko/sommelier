@@ -12,6 +12,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"> </script>
     <script defer src="model/storage.js"></script>
+    <script defer src="model/wineBottle.js"></script>
+    <script defer src="model/sommelier.js"></script>
+    <script defer src="model/degustation.js"></script>
+    <script defer src="model/wineRating.js"></script>
     <script defer src="js/viewmodel.js"></script>
   </head>
   <body>
@@ -25,10 +29,10 @@
             <button type="button" name="button" class="btn btn-primary" data-bind="click: addSommelier, css: {disabled: !newSommelierName()}">Add Sommelier</button>
           </div>
 
-          <table data-bind="foreach: sommeliers">
+          <table data-bind="foreach: sommeliers.sommelierList">
             <tr>
               <td data-bind="text: name"></td>
-              <td><button type="button" name="button" class="btn" data-bind="enable: canTest, click: $root.showDigustationWindow, text: drinkStatusText, css: {disabled: !canTest(), 'btn-success': !canTest()}">Drink some wine</button></td>
+              <td><button type="button" name="button" class="btn" data-bind="enable: canTest, click: $root.showDegustationWindow, text: drinkStatusText, css: {disabled: !canTest(), 'btn-success': !canTest()}">Drink some wine</button></td>
             </tr>
           </table>
 
@@ -36,7 +40,7 @@
         </div>
 
 <!--******************* Окно дегустирования ************************************ -->
-        <div class="sommelier-screen" data-bind="with: wineList, visible: wineTestVisible">
+        <div class="sommelier-screen" data-bind="with: degustationWindow.wineList, visible: wineTestVisible">
           <table>
             <thead><tr>
               <th>Test wine</th><th>Rating</th>
@@ -45,17 +49,14 @@
               <tr>
                 <td data-bind="text: hideName()"></td>
                 <td><select data-bind="options: [1, 2, 3, 4, 5], value: sommelierRating, click: insertSommelierRating($parent.sommelierName)"></select></td>
-                <!-- тут у меня возникили проблемы при добавлении в ассоциативный массив рейтинга ключа с именем сомелье (value: rating[$parent.sommelierName])-->
-                <!-- при загрузке страницы, т.к. сомелье еще не создан, в массиве создается ключ undefined со значением 1-->
-                <!-- исправлять я это не стал, а просто учел этот факт при рассчете среднего значения рейтинга-->
               </tr>
             </tbody>
           </table>
-          <button type="button" name="button" data-bind="click: $root.saveTable">Save</button>
+          <button type="button" name="button" data-bind="click: $root.saveDegustattionResult">Save</button>
         </div>
 
 <!--******************* Окно результатов дегустирования ************************************ -->
-        <div class="sommelier-screen" data-bind="with: wineList, visible: resultsVisible">
+        <div class="sommelier-screen" data-bind="with: wineRating.wineRatingList, visible: resultsVisible">
           <table>
             <th>Test wine</th><th>Age</th><th>Average</th>
             <tbody data-bind="foreach: wines">
