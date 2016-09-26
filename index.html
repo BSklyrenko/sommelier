@@ -11,12 +11,13 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"> </script>
-    <script defer src="model/storage.js"></script>
+    <!-- <script defer src="model/storage.js"></script>
     <script defer src="model/wineBottle.js"></script>
     <script defer src="model/sommelier.js"></script>
     <script defer src="model/degustation.js"></script>
     <script defer src="model/wineRating.js"></script>
-    <script defer src="js/viewmodel.js"></script>
+    <script defer src="js/viewmodel.js"></script> -->
+    <script defer src="script.js"></script>
   </head>
   <body>
     <div class="flex-wrapper">
@@ -40,8 +41,8 @@
         </div>
 
 <!--******************* Окно дегустирования ************************************ -->
-        <div class="sommelier-screen" data-bind="with: degustationWindow.wineList, visible: wineTestVisible">
-          <table>
+        <div class="sommelier-screen" data-bind="visible: wineTestVisible">
+          <table data-bind="with: degustationWindow.wineList">
             <thead><tr>
               <th>Test wine</th><th>Rating</th>
             </tr></thead>
@@ -52,12 +53,12 @@
               </tr>
             </tbody>
           </table>
-          <button type="button" name="button" data-bind="click: $root.saveDegustattionResult">Save</button>
+          <button type="button" name="button" data-bind="click: saveDegustattionResult">Save</button>
         </div>
 
 <!--******************* Окно результатов дегустирования ************************************ -->
-        <div class="sommelier-screen" data-bind="with: wineRating.wineRatingList, visible: resultsVisible">
-          <table>
+        <div class="sommelier-screen" data-bind="visible: resultsVisible">
+          <table data-bind="with: wineRating.wineRatingList">
             <th>Test wine</th><th>Age</th><th>Average</th>
             <tbody data-bind="foreach: wines">
               <tr>
@@ -67,8 +68,9 @@
               </tr>
             </tbody>
           </table>
-          <button type="button" name="button" data-bind="click: $root.hideResults">OK</button>
+          <button type="button" name="button" data-bind="click: hideResults">OK</button>
         </div>
+
       </div>
     </div>
 
