@@ -40,7 +40,7 @@ var WineBottle = (function () {
         this.sommelierRating = ko.observable();
     }
     WineBottle.prototype.hideName = function () {
-        return $.map(this.name.split(''), function () { return '*'; }).join('');
+        return this.name.split('').map(function () { return '*'; }).join('');
     };
     WineBottle.prototype.getAverageScore = function () {
         var totalScore = 0;

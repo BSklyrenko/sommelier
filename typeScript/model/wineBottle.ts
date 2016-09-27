@@ -12,7 +12,8 @@ class WineBottle {
   }
 
   hideName(): string {                                                          // метод создающий патерн для скрытия названия вин
-    return $.map(this.name.split(''), function() {return '*';}).join('');
+    // return $.map(this.name.split(''), function() {return '*';}).join('');
+    return this.name.split('').map(function() {return '*';}).join('');
   }
 
   getAverageScore(): number {                                                   // метод рассчитывает средний рейтинг основываясь на значениях,
