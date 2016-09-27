@@ -22,6 +22,8 @@
         "typings/browser.d.ts"
     ],
     "files": [
+      "jquery.d.ts",
+      "knockout.d.ts",
       "model/storage.ts",
       "model/WineBottle.ts",
       "model/SommelierManage.ts",

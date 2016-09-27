@@ -12,8 +12,8 @@ class SommelierManage {                                                       //
 
 class Sommelier {                                                             // конструктор сомелье
   name: string;
-  canTest: boolean;
-  drinkStatusText: string;
+  canTest: any;
+  drinkStatusText: any;
 
   constructor(name: string) {
     this.name = name;
