@@ -23,10 +23,10 @@
     ],
     "files": [
       "model/storage.ts",
-      "model/wineBottle.ts",
-      "model/sommelier.ts",
-      "model/degustation.ts",
-      "model/wineRating.ts",
+      "model/WineBottle.ts",
+      "model/SommelierManage.ts",
+      "model/Degustation.ts",
+      "model/WineRating.ts",
       "viewmodel.ts"
     ],
     "compileOnSave": true,
